@@ -71,7 +71,7 @@
 | [~] 8.6 Hematic 基础 | 8.2 | 已实现 Core-only 有界 Hematic 容量、Heart Pump 来源、定向 Artery 和红石 Actuator；边界见 [ADR 0005](decisions/0005-hematic-foundation-contract.md) | Java 17 `test` 与专服 GameTest 32 项通过；真实拆接／卸载／重启、玩家布局、平衡和正式资产待验 |
 | [~] 8.7 Living 网络 | 8.6 | 已将有界 Hematic 输送接入既有膜墙，Actuator 作为第二个可见耗液用途；边界见 [ADR 0006](decisions/0006-living-network-membrane-contract.md) | Java 17 `test` 与专服 GameTest 33 项通过；真实布局、循环、长时间卸载／重启、断供、拆除、保护、平衡和正式资产待验 |
 | [~] 8.8 Enzymatic | 8.6 | 已实现 Enzyme Vat：Collagen 催化 Raw Tissue 回收为 Nutrient Paste，并保存有界输入／输出／进度；边界见 [ADR 0007](decisions/0007-enzyme-vat-contract.md) | Java 17 `test` 与专服 GameTest 34 项通过；实际配方 reload、停机恢复、背包满领取、平衡与正式资产待验 |
-| 8.9 Compatibility | 8.2、8.5 | 独立玩家状态、一种可逆适应途径、局部免疫响应与 Stoneblight 表现 | 不建立反向无限感染；不破坏机器；死亡／重连／维度切换与多人隔离 |
+| [~] 8.9 Compatibility | 8.2、8.5 | 已实现独立玩家 Compatibility、可逆 Maw Adaptation 路径、既有局部 Immune Response 与不替换玩家方块的 Stoneblight 标记；边界见 [ADR 0008](decisions/0008-compatibility-and-stoneblight-contract.md) | Java 17 `test` 与专服 GameTest 34 项通过；真实死亡／重连／维度切换、可读性、Immune 遭遇和多人待验 |
 | 8.10 Neural | 8.7–8.8 | 一个传感器、信号传输和一个执行端 | 更新预算、反馈环、卸载无悬挂网络；可关闭，不依赖外部科技 |
 | 8.11 End Revelation | 8.4、研究反馈 | 一个 Ancient Anchor 观测设施、End Stone／Chorus 研究链 | 局部设施定位、乱序知识、旧 End 存档与重复生成保护 |
 | 8.12 跨系统验收 | 上述技术闭环 | 往返远征→补给→工业→适应→研究，迁移与长测报告 | Core 独立运行；资产与真人结果分列，未通过项阻止相应发布承诺 |

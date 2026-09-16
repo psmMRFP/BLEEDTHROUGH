@@ -284,6 +284,7 @@ Alpha／Beta 体验验收（2026-09-08 按项目所有者安排调整）：
 - [~] 8.6 Hematic 基础（2026-09-13）：保留 Heart Pump ID 与旧加工行为，新增有界 Hematic 容量、定向 Artery 和耗液红石 Actuator；边界见 [ADR 0005](decisions/0005-hematic-foundation-contract.md)。Java 17 `test` 与专服 GameTest 32 项通过；真实拆接／重启、玩家布局、平衡和正式资产待进行。
 - [~] 8.7 Living 网络（2026-09-14）：Artery 可向相邻 Regenerative Membrane 输送 Hematic，250 mB 精确转换为一格既有营养；Actuator 保持第二个可见耗液用途，边界见 [ADR 0006](decisions/0006-living-network-membrane-contract.md)。Java 17 `test` 与专服 GameTest 33 项通过；真实布局、循环、长时间卸载／重启、平衡和正式资产待进行。
 - [~] 8.8 Enzymatic（2026-09-16）：Enzyme Vat 使用不消耗的 Collagen 催化 Raw Tissue 回收为 Nutrient Paste，保存有界输入／输出／进度并在背包满时掉落产物；边界见 [ADR 0007](decisions/0007-enzyme-vat-contract.md)。Java 17 `test` 与专服 GameTest 34 项通过；实际配方 reload、停机恢复、背包满领取、平衡与正式资产待进行。
+- [~] 8.9 Compatibility（2026-09-16）：独立玩家 Compatibility 能力、由可逆 Maw Adaptation 逐步获得的适应路径，以及仅在外来方块上方生成的局部 Stoneblight 标记已实现；边界见 [ADR 0008](decisions/0008-compatibility-and-stoneblight-contract.md)。Java 17 `test` 与专服 GameTest 34 项通过；真实死亡／重连／维度切换、可读性、Immune 遭遇和多人体验待进行。
 
 - The Maw 最小可长期生存版本；
 - Burning Wound 与 End Wormhole；
