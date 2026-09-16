@@ -30,8 +30,9 @@ public final class EcologyGameTests {
         var world = MeatscapeWorldData.get(level.getServer());
         WorldStage previousStage = world.worldStage();
         boolean previousPause = world.isPaused();
-        BlockPos ground = helper.absolutePos(new BlockPos(2, 3, 2));
-        ChunkPos chunk = new ChunkPos(ground);
+        BlockPos fixture = helper.absolutePos(new BlockPos(2, 3, 2));
+        ChunkPos chunk = new ChunkPos(fixture);
+        BlockPos ground = new BlockPos(chunk.getMinBlockX() + 3, fixture.getY(), chunk.getMinBlockZ() + 3);
         int previousCoherence = MawCoherenceService.get(level.getChunkAt(ground));
         try {
             for (int attempt = 0; attempt < 5; attempt++) {
@@ -58,6 +59,9 @@ public final class EcologyGameTests {
         } finally {
             level.getEntitiesOfClass(MawGrazer.class, new net.minecraft.world.phys.AABB(ground).inflate(32))
                     .forEach(Entity::discard);
+            for (int attempt = 0; attempt < 5; attempt++) {
+                level.removeBlock(ground.offset(attempt * 2, 0, 0), false);
+            }
             MawCoherenceService.set(level, chunk, previousCoherence);
             world.setWorldStage(previousStage);
             world.setPaused(previousPause);
