@@ -70,7 +70,7 @@
 | [~] 8.5 代表生态与地貌 | 8.2 | 已实现 Subdermal Expanse 中低频、静态且单 chunk 有界的 Vascular Canopy 小场景；边界见 [ADR 0004](decisions/0004-vascular-canopy-scene-contract.md) | Java 17 `test` 与专服 GameTest 31 项通过；真实新区块密度、导航可读性、卸载／重载、资源／声音与正式视觉资产待验；不一次铺满所有 Maw 群系 |
 | [~] 8.6 Hematic 基础 | 8.2 | 已实现 Core-only 有界 Hematic 容量、Heart Pump 来源、定向 Artery 和红石 Actuator；边界见 [ADR 0005](decisions/0005-hematic-foundation-contract.md) | Java 17 `test` 与专服 GameTest 32 项通过；真实拆接／卸载／重启、玩家布局、平衡和正式资产待验 |
 | [~] 8.7 Living 网络 | 8.6 | 已将有界 Hematic 输送接入既有膜墙，Actuator 作为第二个可见耗液用途；边界见 [ADR 0006](decisions/0006-living-network-membrane-contract.md) | Java 17 `test` 与专服 GameTest 33 项通过；真实布局、循环、长时间卸载／重启、断供、拆除、保护、平衡和正式资产待验 |
-| 8.8 Enzymatic | 8.6 | 一台处理组件、一条催化或废料再利用配方 | 容器和流体守恒、配方 reload、停机续跑与工业用途 |
+| [~] 8.8 Enzymatic | 8.6 | 已实现 Enzyme Vat：Collagen 催化 Raw Tissue 回收为 Nutrient Paste，并保存有界输入／输出／进度；边界见 [ADR 0007](decisions/0007-enzyme-vat-contract.md) | Java 17 `test` 与专服 GameTest 34 项通过；实际配方 reload、停机恢复、背包满领取、平衡与正式资产待验 |
 | 8.9 Compatibility | 8.2、8.5 | 独立玩家状态、一种可逆适应途径、局部免疫响应与 Stoneblight 表现 | 不建立反向无限感染；不破坏机器；死亡／重连／维度切换与多人隔离 |
 | 8.10 Neural | 8.7–8.8 | 一个传感器、信号传输和一个执行端 | 更新预算、反馈环、卸载无悬挂网络；可关闭，不依赖外部科技 |
 | 8.11 End Revelation | 8.4、研究反馈 | 一个 Ancient Anchor 观测设施、End Stone／Chorus 研究链 | 局部设施定位、乱序知识、旧 End 存档与重复生成保护 |

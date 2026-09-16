@@ -5,6 +5,7 @@ import com.bleedthrough.meatscape.architecture.RegenerativeMembraneBlockEntity;
 import com.bleedthrough.meatscape.bioindustry.ArteryBlockEntity;
 import com.bleedthrough.meatscape.bioindustry.HeartPumpBlockEntity;
 import com.bleedthrough.meatscape.bioindustry.HematicActuatorBlockEntity;
+import com.bleedthrough.meatscape.bioindustry.EnzymeVatBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -21,6 +22,7 @@ public final class MeatscapeBlockEntities {
     public static final RegistryObject<BlockEntityType<HeartPumpBlockEntity>> HEART_PUMP = TYPES.register("heart_pump", () -> BlockEntityType.Builder.of(HeartPumpBlockEntity::new, MeatscapeBlocks.HEART_PUMP.get()).build(null));
     public static final RegistryObject<BlockEntityType<ArteryBlockEntity>> ARTERY = TYPES.register("artery", () -> BlockEntityType.Builder.of(ArteryBlockEntity::new, MeatscapeBlocks.ARTERY.get()).build(null));
     public static final RegistryObject<BlockEntityType<HematicActuatorBlockEntity>> HEMATIC_ACTUATOR = TYPES.register("hematic_actuator", () -> BlockEntityType.Builder.of(HematicActuatorBlockEntity::new, MeatscapeBlocks.HEMATIC_ACTUATOR.get()).build(null));
+    public static final RegistryObject<BlockEntityType<EnzymeVatBlockEntity>> ENZYME_VAT = TYPES.register("enzyme_vat", () -> BlockEntityType.Builder.of(EnzymeVatBlockEntity::new, MeatscapeBlocks.ENZYME_VAT.get()).build(null));
 
     private MeatscapeBlockEntities() { }
 
