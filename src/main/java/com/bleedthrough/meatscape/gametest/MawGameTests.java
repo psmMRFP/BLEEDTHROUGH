@@ -9,6 +9,7 @@ import com.bleedthrough.meatscape.bioindustry.ArteryBlockEntity;
 import com.bleedthrough.meatscape.bioindustry.HeartPumpBlockEntity;
 import com.bleedthrough.meatscape.bioindustry.HematicActuatorBlock;
 import com.bleedthrough.meatscape.bioindustry.HematicActuatorBlockEntity;
+import com.bleedthrough.meatscape.bioindustry.EnzymeVatBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
@@ -86,6 +87,20 @@ public final class MawGameTests {
         HematicActuatorBlockEntity.serverTick(level, actuatorPos, level.getBlockState(actuatorPos), actuator);
         helper.assertTrue(pump.hematic() == 200 && artery.hematic() == 0 && actuator.hematic() == 40, "Hematic volume was not conserved across the bounded circuit");
         helper.assertTrue(level.getBlockState(actuatorPos).getValue(HematicActuatorBlock.POWERED), "Actuator did not activate after consuming Hematic fluid");
+        helper.succeed();
+    }
+
+    @GameTest(template = "empty", batch = "phase88Enzymatic")
+    public static void enzymeVatPreservesCatalystAndProgressAcrossReload(GameTestHelper helper) {
+        var level = helper.getLevel(); BlockPos pos = helper.absolutePos(new BlockPos(2, 2, 2));
+        level.setBlockAndUpdate(pos, MeatscapeBlocks.ENZYME_VAT.get().defaultBlockState());
+        var vat = (EnzymeVatBlockEntity) level.getBlockEntity(pos);
+        helper.assertTrue(vat != null && vat.addCatalyst() && vat.addTissue(), "Enzyme Vat did not accept bounded inputs");
+        for (int tick = 0; tick < 40; tick++) EnzymeVatBlockEntity.serverTick(level, pos, level.getBlockState(pos), vat);
+        var saved = vat.saveWithoutMetadata(); var reloaded = new EnzymeVatBlockEntity(pos, level.getBlockState(pos)); reloaded.load(saved);
+        helper.assertTrue(reloaded.catalyst() == 1 && reloaded.tissue() == 1 && reloaded.progress() == 40, "Vat state did not persist");
+        for (int tick = 0; tick < 60; tick++) EnzymeVatBlockEntity.serverTick(level, pos, level.getBlockState(pos), reloaded);
+        helper.assertTrue(reloaded.catalyst() == 1 && reloaded.tissue() == 0 && reloaded.output() == 1, "Catalyst was consumed or output was duplicated");
         helper.succeed();
     }
 }

@@ -31,5 +31,6 @@
   "effect.meatscape.maw_pressure": "巨口压力",
   "effect.meatscape.maw_adaptation": "巨口适应",
   "block.meatscape.artery": "血管",
-  "block.meatscape.hematic_actuator": "血液执行器"
+  "block.meatscape.hematic_actuator": "血液执行器",
+  "block.meatscape.enzyme_vat": "酶化槽"
 }

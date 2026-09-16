@@ -31,5 +31,6 @@
   "effect.meatscape.maw_pressure": "Maw Pressure",
   "effect.meatscape.maw_adaptation": "Maw Adaptation",
   "block.meatscape.artery": "Artery",
-  "block.meatscape.hematic_actuator": "Hematic Actuator"
+  "block.meatscape.hematic_actuator": "Hematic Actuator",
+  "block.meatscape.enzyme_vat": "Enzyme Vat"
 }
