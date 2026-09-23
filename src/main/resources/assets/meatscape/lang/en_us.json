@@ -32,5 +32,8 @@
   "effect.meatscape.maw_adaptation": "Maw Adaptation",
   "block.meatscape.artery": "Artery",
   "block.meatscape.hematic_actuator": "Hematic Actuator",
-  "block.meatscape.enzyme_vat": "Enzyme Vat"
+  "block.meatscape.enzyme_vat": "Enzyme Vat",
+  "block.meatscape.neural_sensor": "Neural Sensor",
+  "block.meatscape.neural_fiber": "Neural Fiber",
+  "block.meatscape.neural_actuator": "Neural Actuator"
 }
