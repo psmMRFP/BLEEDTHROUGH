@@ -1,0 +1,1 @@
+{"parent":"meatscape:end_revelation/root","display":{"icon":{"item":"minecraft:chorus_fruit"},"title":{"translate":"advancement.meatscape.end_revelation.chorus.title"},"description":{"translate":"advancement.meatscape.end_revelation.chorus.description"},"frame":"task","show_toast":false,"announce_to_chat":false},"criteria":{"observed":{"trigger":"minecraft:impossible"}}}

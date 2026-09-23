@@ -1,6 +1,7 @@
 package com.bleedthrough.meatscape.world.end;
 
 import com.bleedthrough.meatscape.core.registry.MeatscapeBlocks;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.Level;
@@ -23,7 +24,16 @@ public final class EndWormholeFeature extends Feature<NoneFeatureConfiguration> 
             BlockPos pos = origin.offset(0, offset * sign, 0);
             if (context.level().isOutsideBuildHeight(pos) || !context.level().isEmptyBlock(pos)
                     || !context.level().getBlockState(pos.below()).is(net.minecraft.world.level.block.Blocks.END_STONE)) continue;
-            return context.level().setBlock(pos, MeatscapeBlocks.END_WORMHOLE.get().defaultBlockState(), Block.UPDATE_CLIENTS);
+            var site = AncientAnchorLayout.find(context.level(), pos, region.getCenter());
+            if (!context.level().setBlock(pos, MeatscapeBlocks.END_WORMHOLE.get().defaultBlockState(), Block.UPDATE_CLIENTS)) return false;
+            site.ifPresent(anchor -> {
+                for (BlockPos marker : anchor.markers()) {
+                    context.level().setBlock(marker, Blocks.END_STONE_BRICKS.defaultBlockState(), Block.UPDATE_CLIENTS);
+                }
+                context.level().setBlock(anchor.anchor(), MeatscapeBlocks.ANCIENT_ANCHOR.get().defaultBlockState()
+                        .setValue(AncientAnchorBlock.FACING, anchor.facing()), Block.UPDATE_CLIENTS);
+            });
+            return true;
         }
         return false;
     }

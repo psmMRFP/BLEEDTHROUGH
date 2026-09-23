@@ -35,5 +35,22 @@
   "block.meatscape.enzyme_vat": "酶化槽",
   "block.meatscape.neural_sensor": "神经传感器",
   "block.meatscape.neural_fiber": "神经纤维",
-  "block.meatscape.neural_actuator": "神经执行器"
+  "block.meatscape.neural_actuator": "神经执行器",
+  "block.meatscape.ancient_anchor": "远古锚点",
+  "message.meatscape.end_stone_observed": "末地石能抵抗巨口的影响。研究记录已保存。",
+  "message.meatscape.chorus_observed": "紫颂具有空间响应。研究记录已保存。",
+  "message.meatscape.anchor_observed": "远古锚点记录着附近虫洞。研究记录已保存。",
+  "message.meatscape.anchor_found": "远古锚点指向坐标 %s、%s、%s 处的通道。",
+  "message.meatscape.anchor_missing": "这处标记附近的通道已不存在。",
+  "message.meatscape.end_revelation_complete": "末地启示：末地石、紫颂与远古锚点构成一条局部空间研究链。",
+  "advancement.meatscape.end_revelation.root.title": "末地启示",
+  "advancement.meatscape.end_revelation.root.description": "独立收集末地空间异常的线索。",
+  "advancement.meatscape.end_revelation.end_stone.title": "惰性之石",
+  "advancement.meatscape.end_revelation.end_stone.description": "携带末地石，记录它对巨口的抵抗。",
+  "advancement.meatscape.end_revelation.chorus.title": "空间紫颂",
+  "advancement.meatscape.end_revelation.chorus.description": "携带紫颂果或紫颂花。",
+  "advancement.meatscape.end_revelation.ancient_anchor.title": "古代观测者",
+  "advancement.meatscape.end_revelation.ancient_anchor.description": "读取天然虫洞旁的远古锚点。",
+  "advancement.meatscape.end_revelation.revelation.title": "局部几何",
+  "advancement.meatscape.end_revelation.revelation.description": "不受发现顺序限制，联系末地石、紫颂与远古锚点。"
 }

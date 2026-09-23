@@ -1,0 +1,1 @@
+{"variants":{"facing=north":{"model":"meatscape:block/ancient_anchor"},"facing=east":{"model":"meatscape:block/ancient_anchor","y":90},"facing=south":{"model":"meatscape:block/ancient_anchor","y":180},"facing=west":{"model":"meatscape:block/ancient_anchor","y":270}}}

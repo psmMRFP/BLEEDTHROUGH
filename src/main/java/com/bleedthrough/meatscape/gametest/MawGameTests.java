@@ -103,4 +103,29 @@ public final class MawGameTests {
         helper.assertTrue(reloaded.catalyst() == 1 && reloaded.tissue() == 0 && reloaded.output() == 1, "Catalyst was consumed or output was duplicated");
         helper.succeed();
     }
+
+    @GameTest(template = "empty", batch = "phase812Migration")
+    public static void unversionedHematicAndVatDataMigrateWithoutLoss(GameTestHelper helper) {
+        var level = helper.getLevel();
+        BlockPos pumpPos = helper.absolutePos(new BlockPos(2, 2, 2));
+        BlockPos vatPos = pumpPos.east();
+        level.setBlockAndUpdate(pumpPos, MeatscapeBlocks.HEART_PUMP.get().defaultBlockState());
+        level.setBlockAndUpdate(vatPos, MeatscapeBlocks.ENZYME_VAT.get().defaultBlockState());
+        var oldPump = new net.minecraft.nbt.CompoundTag();
+        oldPump.putInt("Hematic", 275);
+        var pump = (HeartPumpBlockEntity) level.getBlockEntity(pumpPos);
+        pump.load(oldPump);
+        helper.assertTrue(pump.hematic() == 275 && pump.saveWithoutMetadata().getInt("DataVersion") == 1,
+                "Unversioned Hematic data did not migrate");
+        var oldVat = new net.minecraft.nbt.CompoundTag();
+        oldVat.putInt("Tissue", 2); oldVat.putInt("Catalyst", 1);
+        oldVat.putInt("Output", 3); oldVat.putInt("Progress", 42);
+        var vat = (EnzymeVatBlockEntity) level.getBlockEntity(vatPos);
+        vat.load(oldVat);
+        helper.assertTrue(vat.tissue() == 2 && vat.catalyst() == 1 && vat.output() == 3 && vat.progress() == 42
+                && vat.saveWithoutMetadata().getInt("DataVersion") == 1, "Unversioned Vat data did not migrate");
+        oldPump.putInt("Hematic", Integer.MAX_VALUE); pump.load(oldPump);
+        helper.assertTrue(pump.hematic() == pump.capacity(), "Malformed Hematic amount bypassed capacity");
+        helper.succeed();
+    }
 }

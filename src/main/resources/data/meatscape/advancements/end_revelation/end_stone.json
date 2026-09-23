@@ -1,0 +1,1 @@
+{"parent":"meatscape:end_revelation/root","display":{"icon":{"item":"minecraft:end_stone"},"title":{"translate":"advancement.meatscape.end_revelation.end_stone.title"},"description":{"translate":"advancement.meatscape.end_revelation.end_stone.description"},"frame":"task","show_toast":false,"announce_to_chat":false},"criteria":{"observed":{"trigger":"minecraft:impossible"}}}

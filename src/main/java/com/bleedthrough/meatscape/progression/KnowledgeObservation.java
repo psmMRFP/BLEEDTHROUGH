@@ -10,7 +10,11 @@ public enum KnowledgeObservation {
     WORMHOLE("observed_wormhole"),
     CAUTERIZATION("observed_cauterization"),
     WHITE_SANCTUARY("observed_white_sanctuary"),
-    BIOINDUSTRY("operated_heart_pump");
+    BIOINDUSTRY("operated_heart_pump"),
+    END_STONE("sampled_end_stone"),
+    CHORUS("sampled_chorus"),
+    ANCIENT_ANCHOR("observed_ancient_anchor"),
+    END_REVELATION("completed_end_revelation");
 
     private final String id;
     KnowledgeObservation(String id) { this.id = id; }

@@ -35,5 +35,22 @@
   "block.meatscape.enzyme_vat": "Enzyme Vat",
   "block.meatscape.neural_sensor": "Neural Sensor",
   "block.meatscape.neural_fiber": "Neural Fiber",
-  "block.meatscape.neural_actuator": "Neural Actuator"
+  "block.meatscape.neural_actuator": "Neural Actuator",
+  "block.meatscape.ancient_anchor": "Ancient Anchor",
+  "message.meatscape.end_stone_observed": "End Stone resists the Maw's influence. Research note recorded.",
+  "message.meatscape.chorus_observed": "Chorus carries a spatial response. Research note recorded.",
+  "message.meatscape.anchor_observed": "The Ancient Anchor records a nearby wormhole. Research note recorded.",
+  "message.meatscape.anchor_found": "Ancient Anchor points to an aperture at %s, %s, %s.",
+  "message.meatscape.anchor_missing": "No nearby aperture remains at this marker.",
+  "message.meatscape.end_revelation_complete": "End Revelation: End Stone, Chorus, and the Ancient Anchor form a local spatial research chain.",
+  "advancement.meatscape.end_revelation.root.title": "End Revelation",
+  "advancement.meatscape.end_revelation.root.description": "Collect independent clues about the End's spatial anomalies.",
+  "advancement.meatscape.end_revelation.end_stone.title": "Inert Stone",
+  "advancement.meatscape.end_revelation.end_stone.description": "Carry End Stone and record its resistance to the Maw.",
+  "advancement.meatscape.end_revelation.chorus.title": "Spatial Chorus",
+  "advancement.meatscape.end_revelation.chorus.description": "Carry Chorus Fruit or a Chorus Flower.",
+  "advancement.meatscape.end_revelation.ancient_anchor.title": "Ancient Observer",
+  "advancement.meatscape.end_revelation.ancient_anchor.description": "Read an Ancient Anchor beside a natural wormhole.",
+  "advancement.meatscape.end_revelation.revelation.title": "Local Geometry",
+  "advancement.meatscape.end_revelation.revelation.description": "Connect End Stone, Chorus, and an Ancient Anchor without a fixed discovery order."
 }
