@@ -32,5 +32,8 @@
   "effect.meatscape.maw_adaptation": "巨口适应",
   "block.meatscape.artery": "血管",
   "block.meatscape.hematic_actuator": "血液执行器",
-  "block.meatscape.enzyme_vat": "酶化槽"
+  "block.meatscape.enzyme_vat": "酶化槽",
+  "block.meatscape.neural_sensor": "神经传感器",
+  "block.meatscape.neural_fiber": "神经纤维",
+  "block.meatscape.neural_actuator": "神经执行器"
 }

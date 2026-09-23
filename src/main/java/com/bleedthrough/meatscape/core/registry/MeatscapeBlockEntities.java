@@ -6,6 +6,7 @@ import com.bleedthrough.meatscape.bioindustry.ArteryBlockEntity;
 import com.bleedthrough.meatscape.bioindustry.HeartPumpBlockEntity;
 import com.bleedthrough.meatscape.bioindustry.HematicActuatorBlockEntity;
 import com.bleedthrough.meatscape.bioindustry.EnzymeVatBlockEntity;
+import com.bleedthrough.meatscape.bioindustry.neural.NeuralNodeBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -23,6 +24,12 @@ public final class MeatscapeBlockEntities {
     public static final RegistryObject<BlockEntityType<ArteryBlockEntity>> ARTERY = TYPES.register("artery", () -> BlockEntityType.Builder.of(ArteryBlockEntity::new, MeatscapeBlocks.ARTERY.get()).build(null));
     public static final RegistryObject<BlockEntityType<HematicActuatorBlockEntity>> HEMATIC_ACTUATOR = TYPES.register("hematic_actuator", () -> BlockEntityType.Builder.of(HematicActuatorBlockEntity::new, MeatscapeBlocks.HEMATIC_ACTUATOR.get()).build(null));
     public static final RegistryObject<BlockEntityType<EnzymeVatBlockEntity>> ENZYME_VAT = TYPES.register("enzyme_vat", () -> BlockEntityType.Builder.of(EnzymeVatBlockEntity::new, MeatscapeBlocks.ENZYME_VAT.get()).build(null));
+    public static final RegistryObject<BlockEntityType<NeuralNodeBlockEntity>> NEURAL_SENSOR = TYPES.register("neural_sensor", () ->
+            BlockEntityType.Builder.of(NeuralNodeBlockEntity::sensor, MeatscapeBlocks.NEURAL_SENSOR.get()).build(null));
+    public static final RegistryObject<BlockEntityType<NeuralNodeBlockEntity>> NEURAL_FIBER = TYPES.register("neural_fiber", () ->
+            BlockEntityType.Builder.of(NeuralNodeBlockEntity::fiber, MeatscapeBlocks.NEURAL_FIBER.get()).build(null));
+    public static final RegistryObject<BlockEntityType<NeuralNodeBlockEntity>> NEURAL_ACTUATOR = TYPES.register("neural_actuator", () ->
+            BlockEntityType.Builder.of(NeuralNodeBlockEntity::actuator, MeatscapeBlocks.NEURAL_ACTUATOR.get()).build(null));
 
     private MeatscapeBlockEntities() { }
 

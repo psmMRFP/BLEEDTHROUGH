@@ -9,6 +9,7 @@ import com.bleedthrough.meatscape.bioindustry.HeartPumpBlock;
 import com.bleedthrough.meatscape.bioindustry.ArteryBlock;
 import com.bleedthrough.meatscape.bioindustry.HematicActuatorBlock;
 import com.bleedthrough.meatscape.bioindustry.EnzymeVatBlock;
+import com.bleedthrough.meatscape.bioindustry.neural.NeuralBlock;
 import com.bleedthrough.meatscape.coherence.rift.RiftCoreBlock;
 import com.bleedthrough.meatscape.architecture.RegenerativeMembraneBlock;
 import com.bleedthrough.meatscape.world.maw.MawGatewayBlock;
@@ -51,6 +52,13 @@ public final class MeatscapeBlocks {
     public static final RegistryObject<Block> HEMATIC_ACTUATOR = block("hematic_actuator", () -> new HematicActuatorBlock(
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(2.0F).lightLevel(state -> state.getValue(HematicActuatorBlock.POWERED) ? 7 : 0)));
     public static final RegistryObject<Block> ENZYME_VAT = block("enzyme_vat", () -> new EnzymeVatBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F)));
+    public static final RegistryObject<Block> NEURAL_SENSOR = block("neural_sensor", () -> new NeuralBlock(
+            NeuralBlock.Role.SENSOR, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(2.0F)));
+    public static final RegistryObject<Block> NEURAL_FIBER = block("neural_fiber", () -> new NeuralBlock(
+            NeuralBlock.Role.FIBER, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(1.0F)));
+    public static final RegistryObject<Block> NEURAL_ACTUATOR = block("neural_actuator", () -> new NeuralBlock(
+            NeuralBlock.Role.ACTUATOR, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(2.0F)
+                    .lightLevel(state -> state.getValue(NeuralBlock.POWER) > 0 ? 7 : 0)));
     public static final RegistryObject<Block> REGENERATIVE_MEMBRANE = block("regenerative_membrane", () ->
             new RegenerativeMembraneBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK)
                     .strength(2.5F, 6.0F)));

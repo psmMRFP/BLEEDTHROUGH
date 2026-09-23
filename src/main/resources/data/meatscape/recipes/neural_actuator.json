@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":[" C ","ARA"," C "],"key":{"C":{"item":"meatscape:collagen"},"A":{"item":"meatscape:neural_fiber"},"R":{"item":"minecraft:redstone_block"}},"result":{"item":"meatscape:neural_actuator"}}
