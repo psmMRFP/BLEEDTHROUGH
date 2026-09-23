@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 abstract class HematicNodeBlockEntity extends BlockEntity {
+    static final int DATA_VERSION = 1;
     static final int TRANSFER_PER_TICK = 50;
     protected final HematicVolume hematic;
     HematicNodeBlockEntity(net.minecraft.world.level.block.entity.BlockEntityType<?> type, BlockPos pos, BlockState state, int capacity) {
@@ -31,6 +32,6 @@ abstract class HematicNodeBlockEntity extends BlockEntity {
         }
         return 0;
     }
-    @Override protected void saveAdditional(CompoundTag tag) { super.saveAdditional(tag); tag.putInt("Hematic", hematic.amount()); }
+    @Override protected void saveAdditional(CompoundTag tag) { super.saveAdditional(tag); tag.putInt("DataVersion", DATA_VERSION); tag.putInt("Hematic", hematic.amount()); }
     @Override public void load(CompoundTag tag) { super.load(tag); hematic.load(tag.getInt("Hematic")); }
 }

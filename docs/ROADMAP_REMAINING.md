@@ -1,6 +1,6 @@
 # 后续开发路线与验收计划
 
-更新：2026-09-10。规划基线：`origin/main` 的 `2ef4017`；PR #13（知识状态）和 #14（专服遥测）均已合并。本文件是实施计划的细化，不代表这些任务已经实现；不修改原始 DOCX。
+更新：2026-09-23。初始规划基线：`origin/main` 的 `2ef4017`；PR #13（知识状态）和 #14（专服遥测）均已合并。本文件逐项标注当前实施与验收状态；不修改原始 DOCX。
 
 ## 使用方式与状态
 
@@ -19,7 +19,7 @@
 
 7.7 已有默认关闭的 CSV 遥测。当前实现每次在服务端 tick 内遍历存档目录；记录的是采样时刻的处理量，缺少窗口峰值、预算违规累计、每 Rift 统计、GC 信息和会话标识。短时空载样本证明能写文件，不能证明长期稳定或预算从未突破。
 
-**建议下一次实施任务：7.6-R 研究反馈与生命周期补齐。** 随后做 7.7-A 遥测修整、7.7-B 无人长测，再按下列入口条件进入 Phase 8。真实玩家测试持续保留独立验收项。
+**仍需处理的 Phase 7 发布门：7.6-R 研究反馈与生命周期、7.7-A 遥测修整、7.7-B 无人长测，以及真人验证。** Phase 8 的最小技术内容已经先行实施；这不表示 Phase 7 或 Phase 8 的发布验收已通过。
 
 ## Phase 7 收尾：近期可执行任务
 
@@ -58,7 +58,7 @@
 
 ## Phase 8 — The Maw 与中后期系统
 
-阶段目标：先实现能进入、返回、补给和居住的最小 The Maw，再逐次扩展生态与工业。以下均待实现；内容数量是单次闭环建议上限，不是总体愿景的删减。
+阶段目标：实现能进入、返回、补给和居住的最小 The Maw，再逐次扩展生态与工业。下表的 `[~]` 表示代码已有但真实验收未结束；内容数量是单次闭环建议上限，不是总体愿景的删减。
 
 | 子阶段 | 前置 | 最小交付 | 验收重点 |
 |---|---|---|---|
@@ -73,8 +73,8 @@
 | [~] 8.8 Enzymatic | 8.6 | 已实现 Enzyme Vat：Collagen 催化 Raw Tissue 回收为 Nutrient Paste，并保存有界输入／输出／进度；边界见 [ADR 0007](decisions/0007-enzyme-vat-contract.md) | Java 17 `test` 与专服 GameTest 34 项通过；实际配方 reload、停机恢复、背包满领取、平衡与正式资产待验 |
 | [~] 8.9 Compatibility | 8.2、8.5 | 已实现独立玩家 Compatibility、可逆 Maw Adaptation 路径、既有局部 Immune Response 与不替换玩家方块的 Stoneblight 标记；边界见 [ADR 0008](decisions/0008-compatibility-and-stoneblight-contract.md) | Java 17 `test` 与专服 GameTest 34 项通过；真实死亡／重连／维度切换、可读性、Immune 遭遇和多人待验 |
 | [~] 8.10 Neural | 8.7–8.8 | 已实现 Hematic 储量传感器、逐格衰减纤维与红石执行器；边界见 [ADR 0009](decisions/0009-neural-local-signal-contract.md) | Java 17 `test` 与专服 GameTest 36 项通过；每维度每 tick 64 次更新、无源环路消退、可关闭；真实玩家搭线、长线负载、卸载／重载和正式资产待验 |
-| 8.11 End Revelation | 8.4、研究反馈 | 一个 Ancient Anchor 观测设施、End Stone／Chorus 研究链 | 局部设施定位、乱序知识、旧 End 存档与重复生成保护 |
-| 8.12 跨系统验收 | 上述技术闭环 | 往返远征→补给→工业→适应→研究，迁移与长测报告 | Core 独立运行；资产与真人结果分列，未通过项阻止相应发布承诺 |
+| [~] 8.11 End Revelation | 8.4、研究反馈 | 已实现虫洞旁局部 Ancient Anchor、End Stone／Chorus／Anchor 独立知识和可见进度；见 [ADR 0010](decisions/0010-end-revelation-local-anchor-contract.md) | 77 项 JUnit 与专服 GameTest 39/39 通过，覆盖乱序、旧知识、布局与数据包；自然发现、旧 End 存档重启、多人和客户端表现待验 |
+| [~] 8.12 跨系统验收 | 上述技术闭环 | 已汇总往返远征→补给→工业→适应→研究、迁移与待测边界，见 [Phase 8 验收报告](PHASE_8_ACCEPTANCE.md) | Core 独立自动测试含连续补给／工业链，客户端启动烟测完成；真实玩家、三小时负载长测、正式资产与交互结果未通过前，Phase 8 不标为全部验收通过 |
 
 8.5 后续地貌按收益逐个扩展：Overworld 的 Dermal Plains、Follicle Forest、Ossified Peaks、Frozen Scars；Maw 的 Marrow Caverns 等；End 的 Gravitational Archipelago。每个先选一个小场景验证，再扩大生成范围。巨型地标、Distant Forms 和剩余生物名单保留内容候选，不作为 8.1 的依赖。
 

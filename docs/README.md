@@ -13,7 +13,9 @@
 - [实施计划](IMPLEMENTATION_PLAN.md)
 - [Phase 7 Core Alpha 分项计划](PHASE_7_CORE_ALPHA.md)
 - [后续路线：Phase 7 收尾与 Phase 8–10](ROADMAP_REMAINING.md)
+- [Phase 8 技术验收与待测项](PHASE_8_ACCEPTANCE.md)
 - [ADR 0001 — The Maw 维度契约](decisions/0001-the-maw-dimension-contract.md)
+- [ADR 0010 — End Revelation 与局部 Ancient Anchor](decisions/0010-end-revelation-local-anchor-contract.md)
 - [原始总体设计 DOCX](../../BLEEDTHROUGH%20%E2%80%94%20Minecraft%20%E6%95%B4%E5%90%88%E5%8C%85%E6%80%BB%E4%BD%93%E8%AE%BE%E8%AE%A1.docx)
 
 ## 当前冻结基线
@@ -25,7 +27,7 @@
 - Create、Immersive Engineering、TaCZ 等保持可选，不得成为核心存档依赖
 - 唯一运行时区块指标为 `Maw Coherence`
 - 禁止逐方块随机感染；已有区块由有预算的演化调度器处理
-- 第一阶段只做技术 Spike，不做正式 Shader、完整 The Maw、Boss 或深度兼容
+- Phase 8 规划内的最小系统已实现，真实玩家、长测与正式资产验收见 Phase 8 报告；完整 The Maw、Boss、正式 Shader 和深度兼容仍属后续内容
 
 ## 维护规则
 

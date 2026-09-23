@@ -286,6 +286,8 @@ Alpha／Beta 体验验收（2026-09-08 按项目所有者安排调整）：
 - [~] 8.8 Enzymatic（2026-09-16）：Enzyme Vat 使用不消耗的 Collagen 催化 Raw Tissue 回收为 Nutrient Paste，保存有界输入／输出／进度并在背包满时掉落产物；边界见 [ADR 0007](decisions/0007-enzyme-vat-contract.md)。Java 17 `test` 与专服 GameTest 34 项通过；实际配方 reload、停机恢复、背包满领取、平衡与正式资产待进行。
 - [~] 8.9 Compatibility（2026-09-16）：独立玩家 Compatibility 能力、由可逆 Maw Adaptation 逐步获得的适应路径，以及仅在外来方块上方生成的局部 Stoneblight 标记已实现；边界见 [ADR 0008](decisions/0008-compatibility-and-stoneblight-contract.md)。Java 17 `test` 与专服 GameTest 34 项通过；真实死亡／重连／维度切换、可读性、Immune 遭遇和多人体验待进行。
 - [~] 8.10 Neural（2026-09-23）：Hematic 储量传感器、逐格衰减的神经纤维、输出红石的神经执行器及空手开关已实现；边界见 [ADR 0009](decisions/0009-neural-local-signal-contract.md)。Java 17 `test` 与专服 GameTest 36 项通过；真实玩家搭线、长线负载、卸载／重载、可读性与正式资产待进行。
+- [~] 8.11 End Revelation（2026-09-23）：新 Outer End 虫洞旁可生成局部 Ancient Anchor；End Stone、Chorus 与 Anchor 独立观察、乱序完成并同步可见进度。边界见 [ADR 0010](decisions/0010-end-revelation-local-anchor-contract.md)；77 项 JUnit 与专服 GameTest 39/39 通过，自然发现率、旧 End 存档、多人及客户端可读性待验。
+- [~] 8.12 跨系统技术验收（2026-09-23）：连续补给→Heart Pump→Enzyme Vat→适应的专服场景、旧数据迁移及发布门分列于 [Phase 8 验收报告](PHASE_8_ACCEPTANCE.md)。`test build runGameTestServer` 通过且客户端启动烟测完成；真实玩家、长时间负载、正式资产与交互表现待验，不能将 Phase 8 标记为全部通过。
 
 - The Maw 最小可长期生存版本；
 - Burning Wound 与 End Wormhole；

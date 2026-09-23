@@ -27,4 +27,22 @@ class PlayerKnowledgeDataTest {
         PlayerKnowledgeData secondPlayer = new PlayerKnowledgeData(() -> { });
         assertTrue(respawn.observed(KnowledgeObservation.RIFT)); assertTrue(secondPlayer.observations().isEmpty());
     }
+    @Test void endRevelationIsOrderIndependentAndOldKnowledgeRemainsIncomplete() {
+        PlayerKnowledgeData old = new PlayerKnowledgeData(() -> { });
+        old.observe(KnowledgeObservation.WORMHOLE);
+        PlayerKnowledgeData loaded = new PlayerKnowledgeData(() -> { });
+        loaded.load(old.save());
+        assertFalse(PlayerKnowledge.endRevelationResearch(loaded));
+        assertTrue(loaded.observe(KnowledgeObservation.ANCIENT_ANCHOR));
+        assertTrue(loaded.observe(KnowledgeObservation.CHORUS));
+        assertFalse(PlayerKnowledge.endRevelationResearch(loaded));
+        assertTrue(loaded.observe(KnowledgeObservation.END_STONE));
+        assertTrue(PlayerKnowledge.endRevelationResearch(loaded));
+        assertTrue(loaded.observe(KnowledgeObservation.END_REVELATION));
+        assertFalse(loaded.observe(KnowledgeObservation.END_REVELATION));
+        PlayerKnowledgeData restarted = new PlayerKnowledgeData(() -> { });
+        restarted.load(loaded.save());
+        assertTrue(restarted.observed(KnowledgeObservation.END_REVELATION));
+        assertTrue(PlayerKnowledge.endRevelationResearch(restarted));
+    }
 }

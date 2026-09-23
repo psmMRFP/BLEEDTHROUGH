@@ -1,25 +1,26 @@
 # BLEEDTHROUGH
 
-BLEEDTHROUGH is a Minecraft 1.20.1 bio-punk survival and ecological cosmic-horror project. Its core mod, Meatscape, models the gradual overlap between the Overworld and a complete biological reality called The Maw.
+BLEEDTHROUGH is a Minecraft 1.20.1 bio-punk survival and ecological cosmic-horror project. Its single Forge core mod, Meatscape, models the gradual overlap between the Overworld and a complete biological reality called The Maw.
 
-Phases 0–5 and the technical portion of the Phase 6 vertical slice are complete. Phase 7 is in progress; see the [Core Alpha checklist](docs/PHASE_7_CORE_ALPHA.md). Human play-balance evaluation is scheduled for Alpha/Beta once representative art is available and does not block Phase 7 development.
+Phase 8's planned minimum systems are implemented: The Maw and its survival loop, natural Nether and Outer End entrances, a representative Maw scene and ecology, Hematic and Enzymatic industry, Living Architecture, Compatibility, a bounded Neural circuit, and local End Revelation research. This is a technical milestone, not a release claim. Real-player and multiplayer testing, long-running server load, balance, and final visual assets remain open. See the [Phase 8 acceptance report](docs/PHASE_8_ACCEPTANCE.md) for the exact evidence and gaps. Phase 7's separate Core Alpha gates also remain open.
 
-## Requirements
+## Play and research
 
-- JDK 17
-- Minecraft 1.20.1
-- Forge 47.4.22
+- A Maw Gateway provides a developer entry path. Rare natural Burning Wounds in the Nether and Wormholes on new Outer End islands also lead to The Maw; they do not require a quest or dragon kill.
+- Raw Tissue, Nutrient Paste, and Dermal Panels support an early Maw trip. Heart Pumps, Arteries, Enzyme Vats, regenerative membranes, and Neural components provide small independent Core-only industry loops.
+- A suitable new Outer End Wormhole may have an Ancient Anchor nearby. Reading it and carrying End Stone and Chorus samples records three independent observations. The End Revelation advancement page and messages show progress in any discovery order. Existing End chunks are never retroactively modified.
 
-## Build
+## Requirements and verification
+
+- Minecraft 1.20.1, Forge 47.4.22, and JDK 17.
+- Build dependencies and caches belong in your persistent user-level Gradle directory or this workspace, never a system temporary directory.
+
+With JDK 17 active, run these commands from the repository root:
 
 ```bash
+./gradlew test
 ./gradlew build
-```
-
-Run the Forge GameTest server with:
-
-```bash
 ./gradlew runGameTestServer
 ```
 
-Project decisions and the implementation roadmap live in [docs/](docs/README.md).
+The GameTest server exits after its dedicated-server test suite. See the [documentation index](docs/README.md), [implementation plan](docs/IMPLEMENTATION_PLAN.md), and [remaining roadmap](docs/ROADMAP_REMAINING.md) for decisions and status markers. `[~]` means implemented with specified real-world validation still pending.

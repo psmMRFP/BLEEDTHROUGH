@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 public final class EnzymeVatBlockEntity extends BlockEntity {
+    public static final int DATA_VERSION = 1;
     public static final int PROCESS_TICKS = 100; private int tissue, catalyst, output, progress;
     public EnzymeVatBlockEntity(BlockPos pos, BlockState state) { super(MeatscapeBlockEntities.ENZYME_VAT.get(), pos, state); }
     public boolean addTissue() { if (tissue >= 16) return false; tissue++; setChanged(); return true; }
@@ -26,6 +27,6 @@ public final class EnzymeVatBlockEntity extends BlockEntity {
         setChanged();
     }
     public static void serverTick(net.minecraft.world.level.Level level, BlockPos pos, BlockState state, EnzymeVatBlockEntity vat) { if (vat.tissue <= 0 || vat.catalyst <= 0 || vat.output >= 16) return; if (++vat.progress >= PROCESS_TICKS) { vat.progress = 0; vat.tissue--; vat.output++; } vat.setChanged(); }
-    @Override protected void saveAdditional(CompoundTag tag) { super.saveAdditional(tag); tag.putInt("Tissue", tissue); tag.putInt("Catalyst", catalyst); tag.putInt("Output", output); tag.putInt("Progress", progress); }
+    @Override protected void saveAdditional(CompoundTag tag) { super.saveAdditional(tag); tag.putInt("DataVersion", DATA_VERSION); tag.putInt("Tissue", tissue); tag.putInt("Catalyst", catalyst); tag.putInt("Output", output); tag.putInt("Progress", progress); }
     @Override public void load(CompoundTag tag) { super.load(tag); tissue=Math.max(0,Math.min(16,tag.getInt("Tissue"))); catalyst=Math.max(0,Math.min(1,tag.getInt("Catalyst"))); output=Math.max(0,Math.min(16,tag.getInt("Output"))); progress=Math.max(0,Math.min(PROCESS_TICKS-1,tag.getInt("Progress"))); }
 }

@@ -16,6 +16,7 @@ import com.bleedthrough.meatscape.world.maw.MawGatewayBlock;
 import com.bleedthrough.meatscape.world.maw.NutrientMoundBlock;
 import com.bleedthrough.meatscape.world.nether.BurningWoundBlock;
 import com.bleedthrough.meatscape.world.end.EndWormholeBlock;
+import com.bleedthrough.meatscape.world.end.AncientAnchorBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -68,6 +69,8 @@ public final class MeatscapeBlocks {
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(8.0F, 1200.0F).lightLevel(state -> 9)));
     public static final RegistryObject<Block> END_WORMHOLE = BLOCKS.register("end_wormhole", () -> new EndWormholeBlock(
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(8.0F, 1200.0F).lightLevel(state -> 11)));
+    public static final RegistryObject<Block> ANCIENT_ANCHOR = BLOCKS.register("ancient_anchor", () -> new AncientAnchorBlock(
+            BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).strength(8.0F, 1200.0F).lightLevel(state -> 5)));
 
     private MeatscapeBlocks() { }
 

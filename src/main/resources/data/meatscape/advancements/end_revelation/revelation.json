@@ -1,0 +1,1 @@
+{"parent":"meatscape:end_revelation/root","display":{"icon":{"item":"minecraft:end_crystal"},"title":{"translate":"advancement.meatscape.end_revelation.revelation.title"},"description":{"translate":"advancement.meatscape.end_revelation.revelation.description"},"frame":"goal","show_toast":true,"announce_to_chat":true},"criteria":{"observed":{"trigger":"minecraft:impossible"}}}
