@@ -12,6 +12,7 @@
 - [06 — 外部集成、资产与性能](design/06-integrations-assets-performance.md)
 - [实施计划](IMPLEMENTATION_PLAN.md)
 - [Phase 7 Core Alpha 分项计划](PHASE_7_CORE_ALPHA.md)
+- [Phase 7 技术债与长测记录](PHASE_7_TECH_DEBT.md)
 - [后续路线：Phase 7 收尾与 Phase 8–10](ROADMAP_REMAINING.md)
 - [Phase 8 技术验收与待测项](PHASE_8_ACCEPTANCE.md)
 - [ADR 0001 — The Maw 维度契约](decisions/0001-the-maw-dimension-contract.md)

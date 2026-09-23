@@ -11,6 +11,7 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fml.common.Mod;
 
 public final class PlayerKnowledgeEvents {
@@ -29,13 +30,19 @@ public final class PlayerKnowledgeEvents {
             event.getOriginal().getCapability(PlayerKnowledgeCapability.INSTANCE).ifPresent(old -> event.getEntity().getCapability(PlayerKnowledgeCapability.INSTANCE).ifPresent(next -> next.copyFrom(old)));
             event.getOriginal().invalidateCaps();
         }
-        @SubscribeEvent public static void observeRift(PlayerInteractEvent.RightClickBlock event) {
+        @SubscribeEvent(priority = EventPriority.LOWEST) public static void observeRift(PlayerInteractEvent.RightClickBlock event) {
             if (event.getLevel().isClientSide || !(event.getEntity() instanceof ServerPlayer player)) return;
+            if (event.isCanceled() || event.getUseBlock() == net.minecraftforge.eventbus.api.Event.Result.DENY
+                    || event.getUseItem() == net.minecraftforge.eventbus.api.Event.Result.DENY) return;
             if (event.getLevel().getBlockState(event.getPos()).is(MeatscapeBlocks.RIFT_CORE.get())) PlayerKnowledge.observe(player, KnowledgeObservation.RIFT);
         }
         @SubscribeEvent public static void tick(TickEvent.PlayerTickEvent event) {
             if (event.phase != TickEvent.Phase.END || !(event.player instanceof ServerPlayer player) || player.tickCount % 40 != 0) return;
-            if (ThermalRules.frozen(player.serverLevel(), player.blockPosition())) PlayerKnowledge.observe(player, KnowledgeObservation.WHITE_SANCTUARY);
+            if (!PlayerKnowledge.get(player).observed(KnowledgeObservation.WHITE_SANCTUARY)
+                    && ThermalRules.frozen(player.serverLevel(), player.blockPosition())) {
+                PlayerKnowledge.observe(player, KnowledgeObservation.WHITE_SANCTUARY);
+            }
+            KnowledgeResearch.sync(player);
         }
     }
 }

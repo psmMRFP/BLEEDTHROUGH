@@ -19,6 +19,7 @@ public final class EvolutionScheduler {
     private final Set<EvolutionTask> queued = new HashSet<>();
     private final EnumMap<EvolutionSkipReason, Long> skipped = new EnumMap<>(EvolutionSkipReason.class);
     private List<EvolutionCandidate> lastCandidates = List.of();
+    private Map<UUID, Integer> lastPerRift = Map.of();
     private long ticks;
     private long totalProcessed;
     private long lastTickNanos;
@@ -50,6 +51,7 @@ public final class EvolutionScheduler {
         queue.clear();
         queued.clear();
         lastCandidates = List.of();
+        lastPerRift = Map.of();
     }
 
     public List<EvolutionCandidate> tick(boolean paused, long gameTime, EvolutionEnvironment environment) {
@@ -63,6 +65,7 @@ public final class EvolutionScheduler {
         if (paused) {
             skip(EvolutionSkipReason.PAUSED);
             lastCandidates = List.of();
+            lastPerRift = Map.of();
             lastTickNanos = System.nanoTime() - started;
             return lastCandidates;
         }
@@ -97,6 +100,7 @@ public final class EvolutionScheduler {
             enqueue(task);
         }
         lastCandidates = List.copyOf(candidates);
+        lastPerRift = Map.copyOf(perRift);
         totalProcessed += candidates.size();
         lastTickNanos = System.nanoTime() - started;
         return lastCandidates;
@@ -115,6 +119,9 @@ public final class EvolutionScheduler {
     public List<EvolutionCandidate> lastCandidates() {
         return lastCandidates;
     }
+
+    /** Counts only the current tick; no stale Rift references are retained. */
+    public Map<UUID, Integer> lastPerRift() { return lastPerRift; }
 
     public EvolutionStats stats() {
         return new EvolutionStats(

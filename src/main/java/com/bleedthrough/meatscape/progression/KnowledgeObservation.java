@@ -14,7 +14,9 @@ public enum KnowledgeObservation {
     END_STONE("sampled_end_stone"),
     CHORUS("sampled_chorus"),
     ANCIENT_ANCHOR("observed_ancient_anchor"),
-    END_REVELATION("completed_end_revelation");
+    END_REVELATION("completed_end_revelation"),
+    SEVERANCE_RESEARCH("researched_severance"),
+    SYMBIOSIS_RESEARCH("researched_symbiosis");
 
     private final String id;
     KnowledgeObservation(String id) { this.id = id; }

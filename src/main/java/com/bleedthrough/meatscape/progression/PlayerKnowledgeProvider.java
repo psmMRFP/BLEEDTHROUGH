@@ -11,6 +11,7 @@ final class PlayerKnowledgeProvider implements ICapabilitySerializable<CompoundT
     private final PlayerKnowledgeData data = new PlayerKnowledgeData(this::setDirty);
     private final LazyOptional<PlayerKnowledgeData> optional = LazyOptional.of(() -> data);
     private boolean dirty;
+    PlayerKnowledgeData data() { return data; }
     private void setDirty() { dirty = true; }
     @Override public <T> @NotNull LazyOptional<T> getCapability(@NotNull net.minecraftforge.common.capabilities.Capability<T> cap, @Nullable Direction side) { return PlayerKnowledgeCapability.INSTANCE.orEmpty(cap, optional); }
     @Override public CompoundTag serializeNBT() { dirty = false; return data.save(); }
