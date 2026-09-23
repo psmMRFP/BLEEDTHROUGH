@@ -45,4 +45,33 @@ class PlayerKnowledgeDataTest {
         assertTrue(restarted.observed(KnowledgeObservation.END_REVELATION));
         assertTrue(PlayerKnowledge.endRevelationResearch(restarted));
     }
+    @Test void bothResearchPathsAreIndependentOfObservationOrderAndSurviveReload() {
+        PlayerKnowledgeData data = new PlayerKnowledgeData(() -> { });
+        data.observe(KnowledgeObservation.BIOINDUSTRY);
+        data.observe(KnowledgeObservation.WHITE_SANCTUARY);
+        data.observe(KnowledgeObservation.CAUTERIZATION);
+        assertFalse(PlayerKnowledge.severanceResearch(data));
+        assertFalse(PlayerKnowledge.symbiosisResearch(data));
+        data.observe(KnowledgeObservation.RIFT);
+        assertTrue(PlayerKnowledge.severanceResearch(data));
+        assertTrue(PlayerKnowledge.symbiosisResearch(data));
+        data.observe(KnowledgeObservation.SEVERANCE_RESEARCH);
+        data.observe(KnowledgeObservation.SYMBIOSIS_RESEARCH);
+        PlayerKnowledgeData loaded = new PlayerKnowledgeData(() -> { });
+        loaded.load(data.save());
+        assertTrue(loaded.observed(KnowledgeObservation.SEVERANCE_RESEARCH));
+        assertTrue(loaded.observed(KnowledgeObservation.SYMBIOSIS_RESEARCH));
+        assertFalse(loaded.observe(KnowledgeObservation.SYMBIOSIS_RESEARCH));
+    }
+    @Test void providerSerializesKnowledgeAndKeepsPlayersSeparate() {
+        PlayerKnowledgeProvider first = new PlayerKnowledgeProvider();
+        PlayerKnowledgeProvider second = new PlayerKnowledgeProvider();
+        PlayerKnowledgeData firstData = first.data();
+        firstData.observe(KnowledgeObservation.RIFT);
+        firstData.observe(KnowledgeObservation.BIOINDUSTRY);
+        PlayerKnowledgeProvider reloaded = new PlayerKnowledgeProvider();
+        reloaded.deserializeNBT(first.serializeNBT());
+        assertTrue(reloaded.data().observed(KnowledgeObservation.BIOINDUSTRY));
+        assertTrue(second.data().observations().isEmpty());
+    }
 }

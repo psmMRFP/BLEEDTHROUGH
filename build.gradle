@@ -88,6 +88,12 @@ minecraft {
         }
 
         server {
+            if (project.hasProperty('meatscapeSoak')) {
+                workingDirectory project.file('run/phase7-soak')
+                property 'meatscape.buildCommit', providers.exec {
+                    commandLine 'git', 'rev-parse', '--short=12', 'HEAD'
+                }.standardOutput.asText.get().trim()
+            }
             property 'forge.enabledGameTestNamespaces', mod_id
             args '--nogui'
         }

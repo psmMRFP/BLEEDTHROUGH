@@ -177,7 +177,7 @@
 
 - Git 基线（2026-09-10）：从 7.6 Draft PR #13 的提交 `30ccbf7` 开始；合并后以 main 的对应 merge commit 复核。
 
-- [x] 可复用遥测基础：显式开启 `diagnostics.soakTelemetryEnabled=true` 后，专服每 1200 tick 将 CSV 追加至该存档的 `data/meatscape-soak.csv`。字段为 UTC 时间、server tick、MSPT、已用／最大堆、存档字节数、Rift 数、队列长度、处理量、调度耗时和 rollback job 数；默认关闭，不影响普通服务器。
+- [x] 可复用遥测基础：显式开启 `diagnostics.soakTelemetryEnabled=true` 后，专服默认每 1200 tick 将有界窗口 CSV 追加至该存档的 `data/meatscape-soak.csv`；默认关闭。2026-09-23 字段与后台扫描、轮转语义见 [Phase 7 技术债记录](PHASE_7_TECH_DEBT.md)，旧版瞬时字段不再是当前格式。
 - [~] 真实独立专服数小时 soak 场景待执行：活跃／休眠 Rift、生态和工业并存，暂停、重载、重启与回退交替。当前没有可连接的真实观察者，不能伪称生态与多人路径已验证。
 - [~] 原始遥测记录待产生：模拟 tick 压测和 GameTest 回归不代替真实数小时运行。
 

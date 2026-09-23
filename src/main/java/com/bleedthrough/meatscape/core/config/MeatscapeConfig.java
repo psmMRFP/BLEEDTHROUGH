@@ -35,7 +35,7 @@ public final class MeatscapeConfig {
             .define("diagnostics.soakTelemetryEnabled", false);
 
     public static final ForgeConfigSpec.IntValue SOAK_TELEMETRY_INTERVAL_TICKS = BUILDER
-            .comment("Server ticks between soak samples. World-size measurement only runs when a sample is written.")
+            .comment("Server ticks per bounded soak window. World-size scans run in a background path-only worker.")
             .defineInRange("diagnostics.soakTelemetryIntervalTicks", 1200, 20, 72000);
 
     public static final ForgeConfigSpec SPEC = BUILDER.build();

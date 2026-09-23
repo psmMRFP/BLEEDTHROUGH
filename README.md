@@ -24,3 +24,5 @@ With JDK 17 active, run these commands from the repository root:
 ```
 
 The GameTest server exits after its dedicated-server test suite. See the [documentation index](docs/README.md), [implementation plan](docs/IMPLEMENTATION_PLAN.md), and [remaining roadmap](docs/ROADMAP_REMAINING.md) for decisions and status markers. `[~]` means implemented with specified real-world validation still pending.
+
+Phase 7 research feedback and opt-in soak diagnostics are documented in the [Phase 7 technical-debt record](docs/PHASE_7_TECH_DEBT.md). Its standalone, persistent server rehearsal and three-hour run use `scripts/phase7-soak.sh`; neither replaces real-player validation.
